@@ -1,0 +1,35 @@
+{
+    "name": "Tech-blog",
+    "version": "1.0.0",
+    "description": "CMS-style blog site that allows developer to create account to publish, update and delete posts and comments",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1",
+        "start": "node server.js",
+        "seed": "node seeds/seed.js",
+        "watch": "nodemon server.js"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/SerhiyZv/Tech-blog.git"
+    },
+    "keywords": [],
+    "author": "Serhiy Zvedenyuk(SerhiyZv)",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/SerhiyZv/Tech-blog/issues"
+    },
+    "homepage": "https://github.com/SerhiyZv/Tech-blog#readme",
+    "dependencies": {
+        "bcrypt": "^5.1.0",
+        "connect-session-sequelize": "^7.1.5",
+        "dotenv": "^9.0.2",
+        "express-handlebars": "^5.3.5",
+        "express-session": "^1.17.3",
+        "mysql2": "^2.3.3",
+        "sequelize": "^6.28.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.20"
+    }
+}
