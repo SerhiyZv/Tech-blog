@@ -4,11 +4,11 @@ const Post = require("./Post");
 const User = require("./User");
 
 // Define Post relationship to User
-Post.hasOne(User, {
+User.hasMany(Post, {
     foreignKey: "user_id"
 });
 
-User.belongsTo(Post, {
+Post.belongsTo(User, {
     foreignKey: "user_id"
 });
 
@@ -24,11 +24,11 @@ Comment.belongsTo(Post, {
 });
 
 // Define Comment relationship to User
-Comment.hasOne(User, {
+User.hasMany(Comment, {
     foreignKey: "user_id"
 });
 
-User.belongsTo(Comment, {
+Comment.belongsTo(User, {
     foreignKey: "user_id"
 });
 
