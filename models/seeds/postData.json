@@ -1,0 +1,22 @@
+[
+    {
+        "title": "Vanilla JavaScript",
+        "text": "The term vanilla script is used to refer to the pure JavaScript or we can say plain JavaScript without any type of additional library. Sometimes people often used it as a joke nowadays several things can also be done without using any additional JavaScript libraries.",
+        "post_date": "January 8, 2023"
+    },
+    {
+        "title": "jQuery",
+        "text": "jQuery is a fast, small, and feature-rich JavaScript library. It makes things like HTML document traversal and manipulation, event handling, animation, and Ajax much simpler with an easy-to-use API that works across a multitude of browsers. With a combination of versatility and extensibility, jQuery has changed the way that millions of people write JavaScript.",
+        "post_date": "January 5, 2023"
+    },
+    {
+        "title": "SQL",
+        "text": "SQL is a domain-specific language used in programming and designed for managing data held in a relational database management system, or for stream processing in a relational data stream management system.",
+        "post_date": "July 20, 2023"
+    },
+    {
+        "title": "CSS",
+        "text": "Cascading Style Sheets is a style sheet language used for describing the presentation of a document written in a markup language such as HTML. CSS is a cornerstone technology of the World Wide Web, alongside HTML and JavaScript.",
+        "post_date": "November 19, 2023"
+    }
+]
