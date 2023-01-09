@@ -45,6 +45,15 @@ router.get("/post/:id", async (req, res) => {
     }
 })
 
+// Checking if user is signed in before showing comment fields
+router.get("/signed-in", (req, res) => {
+    if (req.session.logged_in) {
+        res.status(200);
+    } else {
+        res.status(404);
+    }
+})
+
 // Show dashboard
 router.get("/dashboard", withAuth, async (req, res) => {
     try {
@@ -65,7 +74,9 @@ router.get("/dashboard", withAuth, async (req, res) => {
 // Show blog post drafting page
 router.get("/dashboard/new-post", withAuth, (req, res) => {
     try {
-        res.render("write");
+        res.render("write" {
+            existingPost: false
+        });
     } catch {
         res.status(500).json(err);
     }
@@ -93,6 +104,16 @@ router.get("/login", (req, res) => {
     }
 
     res.render('login');
+})
+
+// Show sign up page
+router.get("/signup", (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/');
+        return;
+    }
+
+    res.render('signup');
 })
 
 module.exports = router;
