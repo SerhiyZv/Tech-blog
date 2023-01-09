@@ -5,6 +5,7 @@ const session = require('express-session');
 
 const sequelize = require('./config/connection');
 const SequelizeStore = require('connect-session-sequelize')(session.Store);
+const helpers = require('./utils/auth');
 
 
 const app = express();
@@ -23,7 +24,10 @@ const sess = {
   })
 };
 
+const hbs = exphbs.create({ helpers });
 
+app.engine('handlebars', hbs.engine);
+app.set('view engine', 'handlebars');
 
 app.use(session(sess));
 
@@ -34,5 +38,5 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 
 sequelize.sync({ force: false }).then(() => {
-  app.listen(PORT, () => console.log('Now listening'));
+  app.listen(PORT, () => console.log('Now listening on PORT ${PORT}'));
 });
