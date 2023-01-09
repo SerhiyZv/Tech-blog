@@ -74,7 +74,7 @@ router.get("/dashboard", withAuth, async (req, res) => {
 // Show blog post drafting page
 router.get("/dashboard/new-post", withAuth, (req, res) => {
     try {
-        res.render("write" {
+        res.render("write", {
             existingPost: false
         });
     } catch {
