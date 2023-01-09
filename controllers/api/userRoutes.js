@@ -39,7 +39,7 @@ router.post('/login', async (req, res) => {
         }
 
         // Checks password in database
-        const validPassword = await dbUserData.checkPassword(req.body.password);
+        const validPassword = await UserData.checkPassword(req.body.password);
 
         // If password is not matched return message
         if (!validPassword) {
