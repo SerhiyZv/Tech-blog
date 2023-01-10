@@ -2,3 +2,15 @@ nav a {
     color: #fff;
     font-size: 24px;
 }
+
+.post-link:hover {
+    text-decoration: none;
+}
+
+.post-link:hover .card {
+    opacity: 0.75;
+}
+
+.card {
+    color: #000;
+}
