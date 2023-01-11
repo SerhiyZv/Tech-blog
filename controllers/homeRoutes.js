@@ -32,34 +32,30 @@ router.get("/post/:id", async (req, res) => {
                     attributes: ['name']
                 },
                 {
-                    model: Comment
+                    model: Comment,
+                    include: {
+                        model: User,
+                        attributes: ['name']
+                    }
                 }
             ]
         })
 
         const post = postData.get({ plain: true });
 
-        res.render("post", { post });
+        res.render("post", { ...post });
     } catch (err) {
         res.status(500).json(err);
     }
 })
 
-// Checking if user is signed in before showing comment fields
-router.get("/signed-in", (req, res) => {
-    if (req.session.logged_in) {
-        res.status(200);
-    } else {
-        res.status(404);
-    }
-})
 
 // Show dashboard
 router.get("/dashboard", withAuth, async (req, res) => {
     try {
         const postData = await Post.findAll({
             where: {
-                user_id: req.session.user_id
+                user_id: req.session.userId
             }
         })
 
@@ -89,7 +85,7 @@ router.get("/dashboard/edit/:id", withAuth, async (req, res) => {
 
         const post = postData.get({ plain: true });
 
-        res.render("write", { post });
+        res.render("write", { ...post, existingPost: true });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -98,7 +94,7 @@ router.get("/dashboard/edit/:id", withAuth, async (req, res) => {
 // Show login page
 router.get("/login", (req, res) => {
     // If the user is already logged in, redirect the request to homepage
-    if (req.session.logged_in) {
+    if (req.session.loggedIn) {
         res.redirect('/');
         return;
     }
@@ -108,7 +104,7 @@ router.get("/login", (req, res) => {
 
 // Show sign up page
 router.get("/signup", (req, res) => {
-    if (req.session.logged_in) {
+    if (req.session.loggedIn) {
         res.redirect('/');
         return;
     }
