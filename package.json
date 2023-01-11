@@ -6,7 +6,7 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "node server.js",
-        "seed": "node seeds/seed.js",
+        "seed": "node models/seeds/seed.js",
         "watch": "nodemon server.js"
     },
     "repository": {
@@ -22,6 +22,7 @@
     "homepage": "https://github.com/SerhiyZv/Tech-blog#readme",
     "dependencies": {
         "bcrypt": "^5.1.0",
+        "config": "^3.3.8",
         "connect-session-sequelize": "^7.1.5",
         "dotenv": "^9.0.2",
         "express": "^4.18.2",
