@@ -12,6 +12,7 @@ router.post('/', async (req, res) => {
 
         req.session.save(() => {
             
+            req.session.userId = userData.id;
             req.session.loggedIn = true;
 
             res.status(200).json(userData);
@@ -51,6 +52,7 @@ router.post('/login', async (req, res) => {
 
         // If email and password have passed, user is logged in
         req.session.save(() => {
+          req.session.userId = userData.id;
           req.session.loggedIn = true;
 
           res
@@ -71,6 +73,15 @@ router.post('/logout', (req, res) => {
     } else {
         res.status(404).end();
     }
+})
+
+// Check if user is signed in before showing comment fields
+router.get("/signed-in", (req, res) => {
+  if (req.session.loggedIn) {
+      res.status(200).json("Success");
+  } else {
+      res.status(404).json("Failure");
+  }
 })
 
 module.exports = router;

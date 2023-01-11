@@ -3,12 +3,12 @@ const { Comment } = require('../../models');
 const withAuth = require('../../utils/auth');
 
 //Create new comment
-router.post('/', withAuth, async (req, res) => {
+router.post('/new', withAuth, async (req, res) => {
     try {
         const commentData = await Comment.create({
             text: req.body.text,
             comment_date: req.body.comment_date,
-            user_id: req.session.user_id,
+            user_id: req.session.userId,
             // Should be able to access from client
             post_id: req.body.post_id
         })
