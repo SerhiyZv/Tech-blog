@@ -13,24 +13,38 @@
 
        <!-- Style CSS link -->
        <link rel="stylesheet" href="/css/style.css">
+
+       <script src="https://kit.fontawesome.com/3aa713bd16.js" crossorigin="anonymous"></script>
     </head>
     <body>
         <!-- Top navigation and title -->
         <div class="bg-info mb-4">
+            <header>
+                <h1 class="text-white w-100 px-4 pt-4"><i class="fas fa-desktop"></i> Serhiy's Tech Blog</h1>
+            </header>
             <nav class="navbar p-4 justify-content-start">
                 <a href="/" target="_blank" class="pr-4"><u>Home</u></a>
                 <a href="/dashboard" target="_blank" class="pr-4"><u>Dashboard</u></a>
+                <a href="/" class="pr-4 text-white"><u>Home</u></a>
+                <a href="/dashboard" class="pr-4 text-white"><u>Dashboard</u></a>
+                {{#if loggedIn}}
+                <a class="text-white" id="logout"><u>Log Out</u></a>
+                {{else}}
                 <a href="/login" class="text-white"><u>Log In</u></a>
+                {{/if}}
             </nav>
-            <header>
-                <h1 class="text-white w-100 px-4 pb-3">Serhiy's Tech Blog</h1>
-            </header>
+            
         </div>
 
         <!-- Main section  -->
-        <main>
+        <main class="w-100">
             {{{body}}}
         </main>
+
+        <!-- Adds logout logic if user is logged in -->
+        {{#if loggedIn}}
+        <script src="/js/logout.js"></script>
+        {{/if}}
 
         <!-- Footer -->
         <footer class="bg-dark p-2 mt-5">
