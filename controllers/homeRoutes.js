@@ -19,7 +19,10 @@ router.get("/", async (req, res) => {
 
         const posts = postData.map(post => post.get({ plain: true }));
 
-        res.render('homepage', { posts });
+        res.render('homepage', { 
+            posts,
+            loggedIn: req.session.loggedIn
+        });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -49,7 +52,10 @@ router.get("/post/:id", async (req, res) => {
 
         const post = postData.get({ plain: true });
 
-        res.render("post", { ...post });
+        res.render("post", { 
+            ...post,
+            loggedIn: req.session.loggedIn
+         });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -70,7 +76,10 @@ router.get("/dashboard", withAuth, async (req, res) => {
 
         const posts = postData.map(post => post.get({ plain: true }));
 
-        res.render("dashboard", { posts });
+        res.render("dashboard", { 
+            posts,
+            loggedIn: req.session.loggedIn
+        });
     } catch (err) {
         res.status(500).json(err);
     }
@@ -94,7 +103,11 @@ router.get("/dashboard/edit/:id", withAuth, async (req, res) => {
 
         const post = postData.get({ plain: true });
 
-        res.render("write", { ...post, existingPost: true });
+        res.render("write", {
+             ...post,
+             existingPost: true,
+            loggedIn: req.session.loggedIn
+        });
     } catch (err) {
         res.status(500).json(err);
     }
