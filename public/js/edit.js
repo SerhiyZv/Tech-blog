@@ -10,10 +10,12 @@ const publishPost = async () => {
 
     if (!title) {
         alert("Enter title for post");
+        return;
     }
 
     if (!text) {
         alert("Enter text for post");
+        return;
     }
 
     const response = await fetch('/api/posts', {
@@ -43,10 +45,12 @@ const updatePost = async () => {
 
     if (!title) {
         alert("Enter title for post");
+        return;
     }
 
     if (!text) {
         alert("Enter text for post");
+        return;
     }
 
     const response = await fetch(`/api/posts/${postId}`, {
