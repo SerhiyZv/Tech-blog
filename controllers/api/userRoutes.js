@@ -15,7 +15,9 @@ router.post('/signup', async (req, res) => {
             req.session.userId = userData.id;
             req.session.loggedIn = true;
 
-            res.status(200).json(userData);
+            res.status(200).json({
+              user: userData,
+            });
         })
     } catch (err) {
         res.status(500).json({ message: 'Sign up failed. Please try again!' })
@@ -51,13 +53,16 @@ router.post('/login', async (req, res) => {
         }
 
         // If email and password have passed, user is logged in
-        req.session.save(() => {
+        await req.session.save(() => {
           req.session.userId = userData.id;
           req.session.loggedIn = true;
 
           res
             .status(200)
-            .json({ user: userData, message: 'You are now logged in!' });
+            .json({ 
+              user: userData, 
+              message: 'You are now logged in!'
+            });
         });
       } catch (err) {
         res.status(500).json(err);
