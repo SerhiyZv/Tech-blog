@@ -1,5 +1,5 @@
-<div class="row px-5 justify-content-center">
-    <div class="col-10">
+<div class="row px-2 px-sm-5 justify-content-center">
+    <div class="col-12 col-md-10">
         <div class="my-3 card shadow-sm rounded post" data-post_id="{{id}}">
             <div class="card-header bg-success text-white d-flex justify-content-between">
                 <h2 class="card-title">{{title}}</h2> 
@@ -13,14 +13,18 @@
     </div>
 </div>
 
-<div class="row px-5 justify-content-center mt-2">
-    <div class="col-10">
+<div class="row px-2 px-sm-5 justify-content-center mt-2">
+    <div class="col-12 col-md-10">
         <h3 class="w-100">Comments</h3>
     </div>
 </div>
 
-<div class="row px-5 justify-content-center hide" id="comment-form-container">
-    <div class="col-10">
+{{#each comments as |comment|}}
+{{> comment-summaries}}
+{{/each}}
+
+<div class="row px-2 px-sm-5 justify-content-center hide" id="comment-form-container">
+    <div class="col-12 col-md-10">
         <div class="my-3 card shadow-sm rounded">
             <div class="card-header bg-secondary text-white d-flex justify-content-between">
                 <h2 class="card-title">New Comment</h2> 
@@ -35,12 +39,8 @@
     </div>
 </div>
 
-{{#each comments as |comment|}}
-{{> comment-summaries}}
-{{/each}}
-
-<div class="row px-5 justify-content-center">
-    <div class="col-10">
-        <button class="btn btn-dark w-50 mt-3" id="new-comment"><h5>+ New Comment</h5></button>
+<div class="row px-2 px-sm-5 justify-content-center">
+    <div class="col-12 col-md-10">
+        <button class="btn btn-dark w-75 mt-3" id="new-comment"><h5>+ New Comment</h5></button>
     </div>
 </div>

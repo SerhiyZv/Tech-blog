@@ -1,5 +1,5 @@
-<div class="row px-5 justify-content-center">
-    <div class="col-10">
+<div class="row px-2 px-sm-5 justify-content-center">
+    <div class="col-12 col-md-10">
         <div class="my-3 card shadow-sm rounded">
             <div class="card-header bg-secondary text-white d-flex">
                 {{#if existingPost}}
@@ -14,10 +14,12 @@
             <form id="post-form" class="p-3">
             {{/if}} 
                 <div class="form-group">
+                    <label for="titlearea">Title</label>
                     <input type="text" class="form-control" id="titlearea" value="{{title}}" required>
                 </div>
                 <div class="form-group">
-                    <input type="textarea" class="form-control" id="textarea" value="{{text}}" required>
+                    <label for="textarea">Text</label>
+                    <textarea form="post-form" rows="3" class="form-control" id="textarea" required>{{text}}</textarea>
                 </div>
             </form>
             <div class="d-flex flex-column align-items-center">
@@ -25,7 +27,7 @@
                 <button class="btn btn-secondary w-50" id="update">Update Post</button>
                 <button class="btn btn-danger w-50 my-3" id="delete">Delete Post</button>
                 {{else}}
-                <button class="btn btn-primary w-50 my-3" id="publish">Publish Post</button>
+                <button class="btn btn-primary w-50 mb-3" id="publish">Publish Post</button>
                 {{/if}}
             </div>
         </div>
