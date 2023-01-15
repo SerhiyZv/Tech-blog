@@ -2,6 +2,14 @@ main {
     min-height: calc(100vh - 260px);
 }
 
+header {
+    width: fit-content;
+}
+
+header a:hover {
+    text-decoration: none;
+}
+
 nav a {
     font-size: 24px;
     transition: opacity 0.5s;
