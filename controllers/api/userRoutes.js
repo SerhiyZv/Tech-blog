@@ -1,8 +1,51 @@
 const router = require('express').Router();
 const { User } = require('../../models');
 
+// POst the username is unique
+router.post('/signup-username', async (req, res) => {
+  try {
+    const userData = await User.findOne({
+      where: {
+        name: req.body.name
+      }
+    });
+
+    // Check if username is not matched in database
+    if (userData === null) {
+      res.status(200).json({ message: "Username is unique" });
+      return;
+    } else {
+      res.status(500).json({ message: "Username is not unique" });
+    }
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Internal server error" });
+  }
+})
+
+// POst the email is unique
+router.post('/signup-email', async (req, res) => {
+  try {
+    const userData = await User.findOne({
+      where: {
+        email: req.body.email
+      }
+    });
+
+    // If email is not matched in database
+    if (!userData) {
+      res.status(200).json({ message: "Email is unique" });
+      return;
+    } else {
+      res.status(500).json({ message: "Email is not unique" });
+    }
+  } catch (err) {
+    res.status(500).json({ message: "Internal server error" });
+  }
+})
+
 // Create new user
-router.post('/signup', async (req, res) => {
+router.post('/signup-create', async (req, res) => {
     try {
         const userData = await User.create({
             name: req.body.name,
@@ -10,9 +53,9 @@ router.post('/signup', async (req, res) => {
             password: req.body.password
         })
 
-        req.session.save(() => {
+        req.session.save( async () => {
             
-            req.session.userId = userData.id;
+            req.session.userId = await userData.id;
             req.session.loggedIn = true;
 
             res.status(200).json({
@@ -20,7 +63,8 @@ router.post('/signup', async (req, res) => {
             });
         })
     } catch (err) {
-        res.status(500).json({ message: 'Sign up failed. Please try again!' })
+        res.status(500).json({ message: 'Sign up failed. Please try again!' });
+        console.error(err);
     }
 })
 
@@ -53,8 +97,8 @@ router.post('/login', async (req, res) => {
         }
 
         // If email and password have passed, user is logged in
-        await req.session.save(() => {
-          req.session.userId = userData.id;
+          req.session.save( async () => {
+          req.session.userId = await userData.id;
           req.session.loggedIn = true;
 
           res
