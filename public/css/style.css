@@ -39,6 +39,14 @@ nav a:hover {
     background-color: teal;
 }
 
+.reveal {
+    cursor: pointer;
+    float: right;
+    margin: -25px 15px 0;
+    position: relative;
+    z-index: 2;
+}
+
 #logout {
     cursor: pointer;
 }
