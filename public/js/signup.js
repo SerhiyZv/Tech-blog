@@ -83,7 +83,6 @@ const validate = () => {
     }
 }
 
-passwordField.addEventListener("input", checkLength);
-verifyField.addEventListener("input", verifyPassword);
-signupForm.addEventListener("input", validate);
 signupForm.addEventListener("submit", registerUser);
+
+validate();

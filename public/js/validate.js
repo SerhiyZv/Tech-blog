@@ -22,5 +22,4 @@ const validate = () => {
         submitButton.setAttribute("disabled", "");
 }
 
-
 form.addEventListener("input", validate);

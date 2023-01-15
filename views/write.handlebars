@@ -24,14 +24,15 @@
             </form>
             <div class="d-flex flex-column align-items-center">
                 {{#if existingPost}}
-                <button class="btn btn-secondary w-50" id="update">Update Post</button>
+                <button class="btn btn-secondary w-50 submit-button" id="update" disabled>Update Post</button>
                 <button class="btn btn-danger w-50 my-3" id="delete">Delete Post</button>
                 {{else}}
-                <button class="btn btn-primary w-50 mb-3" id="publish">Publish Post</button>
+                <button class="btn btn-primary w-50 mb-3 submit-button" id="publish" disabled>Publish Post</button>
                 {{/if}}
             </div>
         </div>
     </div>
 </div>
 
+<script src="/js/validate.js"></script>
 <script src="/js/edit.js"></script>
