@@ -10,8 +10,8 @@
         "password": "password1"
     },
     {
-        "name": "Ken Smith",
-        "email": "smith.ken@test.com",
+        "name": "Sam Smith",
+        "email": "smith.sam@test.com",
         "password": "password*"
     }
 ]

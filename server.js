@@ -11,8 +11,12 @@ const helpers = require('./utils/date');
 const app = express();
 const PORT = process.env.PORT || 3001;
 
+require('dotenv').config();
+
+const { SECRET } = process.env;
+
 const sess = {
-  secret: 'MkmJrEvZkUBeUCBJrbbn',
+  secret: SECRET,
   cookie: {
       // 15 minutes in milliseconds
       maxAge: 900000
