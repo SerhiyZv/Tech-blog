@@ -14,20 +14,53 @@ const registerUser = async (event) => {
     const password = passwordField.value.trim();
 
     if (validate()) {
-        const response = await fetch('/api/users/signup', {
+        const usernameResponse = await fetch('/api/users/signup-username', {
             method: "POST",
-            body: JSON.stringify({ 
-                name: username,
-                email: email,
-                password: password
+            body: JSON.stringify({
+                name: username
             }),
             headers: { 'Content-Type': 'application/json' }
-        });
+        })
 
-        if (response.ok) {
-            document.location.replace('/dashboard');
+        // If username is not taken, confirm email is unique
+        if (usernameResponse.ok) {
+
+            // Confirms there are no matching emails in database already
+            const emailResponse = await fetch('/api/users/signup-email', {
+                method: "POST",
+                body: JSON.stringify({
+                    email: email
+                }),
+                headers: { 'Content-Type': 'application/json' }
+            })
+
+            // If email is not taken, submit user info to create account
+            if (emailResponse.ok) {
+                const userResponse = await fetch('/api/users/signup-create', {
+                    method: "POST",
+                    body: JSON.stringify({ 
+                        name: username,
+                        email: email,
+                        password: password
+                    }),
+                    headers: { 'Content-Type': 'application/json' }
+                });
+
+                if (userResponse.ok) {
+                    // Wait 0.5 seconds for session cookie to update so that user is now flagged as logged in before redirecting
+                    setTimeout(() => {
+                        document.location.replace('/dashboard');
+                    }, 500);
+                } else {
+                    alert("Server error: Please try again")
+                }
+
+            } else {
+                alert("Email already exists");
+            }
+
         } else {
-            alert("Server error: Please try again")
+            alert("Username already exists")
         }
     } else {
         alert("Missing field(s)");
@@ -83,6 +116,7 @@ const validate = () => {
     }
 }
 
+signupForm.addEventListener("input", validate);
 signupForm.addEventListener("submit", registerUser);
 
 validate();
