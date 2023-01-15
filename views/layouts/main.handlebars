@@ -2,12 +2,18 @@
 <html>
     <html lang="en"></html>
     <head>
-       <title>Tech Blog</title>
+       <title>Serhiy's Tech Blog</title>
 
        <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+        <meta name="title" property="og:title" content="Serhiy's Tech Blog">
+        <meta name="description" property="og:description" content="Blog site for discussing latest tech innovations and updates.">
+
        <!-- OthestyleCSS link -->
-       <link rel="stylesheet" href="/css/otherstyle.css">
+      <link rel="preload" href="/css/otherstyle.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
+      <noscript>
+            <link rel="stylesheet" href="/css/otherstyle.css">
+      </noscript>
 
        <!-- Bootstrap CDN link -->
        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
@@ -15,7 +21,7 @@
        <!-- Style CSS link -->
        <link rel="stylesheet" href="/css/style.css">
 
-       <script src="https://kit.fontawesome.com/3aa713bd16.js" crossorigin="anonymous"></script>
+       <script src="https://kit.fontawesome.com/3aa713bd16.js" crossorigin="anonymous" defer></script>
     </head>
     <body>
         <!-- Top navigation and title -->

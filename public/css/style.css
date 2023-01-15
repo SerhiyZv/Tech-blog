@@ -31,6 +31,14 @@ nav a:hover {
     display: none !important;
 }
 
+.dark-green {
+    background-color: #008000;
+}
+
+.teal {
+    background-color: teal;
+}
+
 #logout {
     cursor: pointer;
 }
