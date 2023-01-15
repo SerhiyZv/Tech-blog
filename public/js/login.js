@@ -1,10 +1,12 @@
 const loginForm = document.querySelector("#login");
+const eyeIcon = document.querySelector(".reveal");
+const passwordField = document.querySelector("#loginPassword");
 
 const logUserIn = async (event) => {
     event.preventDefault();
 
     const email = document.querySelector("#loginEmail").value.trim();
-    const password = document.querySelector("#loginPassword").value.trim();
+    const password = passwordField.value.trim();
 
     const response = await fetch('/api/users/login', {
         method: "POST",
@@ -21,4 +23,13 @@ const logUserIn = async (event) => {
     }
 }
 
+const revealPassword = () => {
+    // Switch icon
+    eyeIcon.classList.toggle("fa-eye-slash");
+
+    const type = passwordField.getAttribute('type') === 'password' ? 'text' : 'password';
+    passwordField.setAttribute('type', type);
+}
+
 loginForm.addEventListener("submit", logUserIn);
+eyeIcon.addEventListener("click", revealPassword);
