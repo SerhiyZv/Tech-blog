@@ -8,16 +8,6 @@ const publishPost = async () => {
     const title = document.querySelector("#titlearea").value.trim();
     const text = document.querySelector("#textarea").value.trim();
 
-    if (!title) {
-        alert("Enter title for post");
-        return;
-    }
-
-    if (!text) {
-        alert("Enter text for post");
-        return;
-    }
-
     const response = await fetch('/api/posts', {
         method: 'POST',
         body: JSON.stringify({
