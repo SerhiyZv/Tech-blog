@@ -30,17 +30,17 @@
         <!-- Top navigation and title -->
         <div class="mb-4 teal">
             <header>
-                <a href="/">
+                <a href="/" title="Return to homepage">
                     <h1 class="text-white w-100 px-4 pt-4"><i class="fas fa-desktop"></i> Serhiy's Tech Blog</h1>
                 </a>
             </header>
             <nav class="navbar p-4 justify-content-start">
-                <a href="/" class="pr-4 text-white"><u>Home</u></a>
-                <a href="/dashboard" class="pr-4 text-white"><u>Dashboard</u></a>
+                <a href="/" class="pr-4 text-white" title="Return to homepage"><u>Feed</u></a>
+                <a href="/dashboard" class="pr-4 text-white" title="Create, edit and delete posts"><u>Dashboard</u></a>
                 {{#if loggedIn}}
-                <a class="text-white" id="logout"><u>Log Out</u></a>
+                <a class="text-white" id="logout" title="Log out of your account"><u>Log Out</u></a>
                 {{else}}
-                <a href="/login" class="text-white"><u>Log In</u></a>
+                <a href="/login" class="text-white" title="Log into your account"><u>Log In</u></a>
                 {{/if}}
             </nav>
             
