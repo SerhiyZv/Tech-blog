@@ -1,5 +1,3 @@
-const { ValidationError } = require("sequelize");
-
 const signupForm = document.querySelector("#signup");
 const passwordField = document.querySelector("#signupPassword");
 const verifyField = document.querySelector("#verifyPassword");
