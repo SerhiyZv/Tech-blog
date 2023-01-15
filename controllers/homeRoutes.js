@@ -30,6 +30,13 @@ router.get("/", async (req, res) => {
 
 // Show blog post with ID
 router.get("/post/:id", async (req, res) => {
+     // IDs should only be numbers
+     if (!/^[0-9]+$/.test(req.params.id)) {
+        res.status(400).json("Error: Improper URL");
+
+        return;
+    }
+
     try {
         const postData = await Post.findByPk(req.params.id, {
             include: [
@@ -91,13 +98,20 @@ router.get("/dashboard/new-post", withAuth, (req, res) => {
         res.render("write", {
             existingPost: false
         });
-    } catch {
+    } catch (err){
         res.status(500).json(err);
     }
 })
 
 // Show blog post updating/deleting page
 router.get("/dashboard/edit/:id", withAuth, async (req, res) => {
+    // IDs should only be numbers
+    if (!/^[0-9]+$/.test(req.params.id)) {
+        res.status(400).json("Error: Improper URL");
+
+        // Stop execution
+        return;
+    }
     try {
         const postData = await Post.findByPk(req.params.id);
 
