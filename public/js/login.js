@@ -13,7 +13,9 @@ const logUserIn = async (event) => {
     });
 
     if (response.ok) {
-        document.location.replace('/dashboard');
+        setTimeout(() => {
+            document.location.replace('/dashboard');
+        }, 500);
     } else {
         alert("Email or password not recognized. Please try again.")
     }
