@@ -6,7 +6,7 @@ const commentFormContainer = document.querySelector("#comment-form-container");
 // API call to check if user is still signed in 
 const checkSignedIn = async () => {
     const response = await fetch('/api/users/signed-in', {
-        method: 'GET',
+        method: 'POST',
         headers: {
             'Content-Type': 'application/json',
         },
