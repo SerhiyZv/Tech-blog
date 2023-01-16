@@ -1,6 +1,6 @@
 # Serhiy's Tech Blog
 
-![MIT license badge](./screenshots/mit-license.svg)
+![license](https://img.shields.io/static/v1?label=license&message=MIT&color=brightgreen)
 
 ## Table of Contents
 - [Project Overview](#project-overview) 
