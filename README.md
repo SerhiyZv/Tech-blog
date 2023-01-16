@@ -12,7 +12,7 @@
 ## Project Overview
 This is a Tech-Blog web application for users to write blog posts and post comments. The application follows the MVC paradigm and is built using Handlebars and Bootstrap for the front end, Node.js and Express for the server and API, Sequelize as the ODM, and MySQL for the database. All data is hosted in MySQL database on Heroku, including authentication for creating accounts and signing in users to ensure that only those with an assigned username and credentials can add posts or comments. User is able to update and delete their existing posts.
 
-[View the live application](https://serhiytechblog.com/) in Heroku.
+[View the live application](https://serhiytechblog.herokuapp.com/) in Heroku.
 
 ### Languages Used
 - JavaScript (Node.js)
