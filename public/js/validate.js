@@ -13,7 +13,7 @@ const validate = () => {
         inputArray = [...inputFields];
 
     // Filter out inputs that have content
-    const filteredArray = inputArray.filter(field => field.value.trim().length > 0);
+    const filteredArray = inputArray.filter(field => field.value.trim().length > 0)
 
     // Check if the number of fields with content in the filtered array matches the total number of fields, and enable the submit button
     filteredArray.length === inputArray.length ? 

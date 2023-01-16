@@ -72,10 +72,10 @@ const checkLength = () => {
     const checkbox1 = document.querySelector("#checkbox1");
 
     if (password.length >= 8) {
-        checkbox1.classList.remove("hide");
+        // checkbox1.classList.remove("hide");
         return true;
     } else {
-        checkbox1.classList.add("hide");
+        // checkbox1.classList.add("hide");
         return false;
     }
 }
@@ -108,10 +108,10 @@ const validate = () => {
         checkLength() &&
         verifyPassword()
     ) {
-        submitButton.removeAttribute("disabled");
+        // submitButton.removeAttribute("disabled");
         return true;
     } else {
-        submitButton.setAttribute("disabled", "");
+        // submitButton.setAttribute("disabled", "");
         return false;
     }
 }
