@@ -86,7 +86,7 @@ router.post('/login', async (req, res) => {
         }
 
         // Checks password in database
-        const validPassword = await UserData.checkPassword(req.body.password);
+        const validPassword = await userData.checkPassword(req.body.password);
 
         // If password is not matched return message
         if (!validPassword) {
@@ -125,11 +125,11 @@ router.post('/logout', (req, res) => {
 })
 
 // Check if user is signed in before showing comment fields
-router.get("/signed-in", (req, res) => {
+router.post('/signed-in', (req, res) => {
   if (req.session.loggedIn) {
       res.status(200).json("Success");
   } else {
-      res.status(404).json("Failure");
+      res.status(500).json("Failure");
   }
 })
 
