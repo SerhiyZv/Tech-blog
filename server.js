@@ -30,12 +30,12 @@ const sess = {
 
 const hbs = exphbs.create({ helpers });
 
-app.use(function forceLiveDomain(req, res, next) {
-  if (req.get('Host').includes("herokuapp") || req.get('Host').includes("www.")) {
-    return res.redirect(301, `https://serhiytechblog.com${req.path}`);
-  }
-  return next();
-});
+// app.use(function forceLiveDomain(req, res, next) {
+//   if (req.get('Host').includes("herokuapp") || req.get('Host').includes("www.")) {
+//     return res.redirect(301, `https://serhiytechblog.com${req.path}`);
+//   }
+//   return next();
+// });
 
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
